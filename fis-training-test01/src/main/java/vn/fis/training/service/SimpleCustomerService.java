@@ -92,7 +92,19 @@ public class SimpleCustomerService implements CustomerService{
     @Override
     public List<SummaryCustomerByAgeDTO> summaryCustomerByAgeOrderByAgeDesc() {
         //TODO: Implement method tho dung dac ta cua CustomerService interface
-        return null;
+            return customerStore
+                    .findAll()
+                    .stream()
+                    .collect(Collectors.groupingBy(Customer::getAge, Collectors.counting()))
+                    .entrySet()
+                    .stream()
+                    .map(e -> {
+                        SummaryCustomerByAgeDTO s = new SummaryCustomerByAgeDTO();
+                        s.setAge(e.getKey());
+                        s.setCount(e.getValue());
+                        return s;
+                    }).collect(Collectors.toList());
+        }
+              //TODO: Implement method tho dung dac ta cua CustomerService interfac;
     }
 
-}

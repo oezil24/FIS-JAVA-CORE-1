@@ -2,6 +2,7 @@ package vn.fis.training.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class Customer {
@@ -116,6 +117,9 @@ public class Customer {
 
     public void setCreateDateTime(LocalDateTime createDateTime) {
         this.createDateTime = createDateTime;
+    }
+    public long getAge() {
+        return ChronoUnit.YEARS.between(LocalDate.now(),birthDay);
     }
     // TODO: Implement Getters, Setters, Constructors, Equals
 }
