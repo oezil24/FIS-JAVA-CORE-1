@@ -1,0 +1,13 @@
+package com.exception;
+
+public abstract class ApplicationException extends RuntimeException{
+
+    public ApplicationException(String message) {
+        super(message);
+    }
+
+    /**
+     * @return: Ma loi duoc khai bao trong @vn.fis.training.com.service.AppConstant
+     */
+    public abstract String getErrorCode();
+}
