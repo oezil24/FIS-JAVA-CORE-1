@@ -2,10 +2,7 @@ package com.dao;
 
 import com.model.CriminalCase;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class inMemoryCriminalCaseDao implements inMemoryDAO<CriminalCase>{
     private Map<Long, CriminalCase> criminalCaseMap = new HashMap<>();
@@ -33,4 +30,5 @@ public class inMemoryCriminalCaseDao implements inMemoryDAO<CriminalCase>{
     public void deleteById(Long id) {
         criminalCaseMap.remove(id);
     }
+
 }
