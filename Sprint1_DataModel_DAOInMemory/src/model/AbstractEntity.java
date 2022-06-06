@@ -8,35 +8,15 @@ import java.util.Objects;
  * Contain 4 common fields: id, version, createdAt, modifiedAt
  */
 public abstract class AbstractEntity {
-    /**
-     * id: not null, unique, distinct
-     * @java,utils.UUID ?
-     * Usage: to identify uniquely each entity instance
-     */
+
     protected long id;
-    /**
-     * version: not null, start from 0;
-     * usage: keep track of how many times an entity was modified
-     */
+
     protected int version;
-    /**
-     * createdAt: not null, LocalDateTime.now() to make
-     * usage: audit each entity instance by created time
-     */
+
     protected LocalDateTime createdAt;
-    /**
-     * modifiedAT: not null, LocalDateTime.now() to make
-     * usage: audit each entity instance by modified time
-     */
+
     protected LocalDateTime modifiedAt;
 
-    /**
-     * Construtor with full instance
-     * @param id
-     * @param version
-     * @param createdAt
-     * @param modifiedAt
-     */
     public AbstractEntity(long id, int version, LocalDateTime createdAt, LocalDateTime modifiedAt) {
         this.id = id;
         this.version = version;

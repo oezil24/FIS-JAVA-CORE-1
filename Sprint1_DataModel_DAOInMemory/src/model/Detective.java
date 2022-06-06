@@ -7,15 +7,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * A Detective is a Person, a person may not be a detective
- * A Detective has one badgeNumber, a badgeNumber is assigned for only one detective
- * A detective has a rank, Only a rank is assigned to a
- */
+
 public class Detective extends AbstractEntity{
-    /**
-     *
-     */
     private Person person;
     private String badgeNumber;
     private Rank rank;
