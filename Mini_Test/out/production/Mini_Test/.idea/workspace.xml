@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RunManager">
+    <configuration name="SinhVienTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Mini_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.java.com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.java.com.example" />
+      <option name="MAIN_CLASS_NAME" value="test.java.com.example.SinhVienTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SinhVienTest" />
+      </list>
+    </recent_temporary>
+  </component>
+</project>
