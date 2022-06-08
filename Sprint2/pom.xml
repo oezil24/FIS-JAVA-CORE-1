@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>fresher-jdbc-mysql-demo</artifactId>
+  <artifactId>Sprint2</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>fresher-jdbc-mysql-demo</name>
+  <name>Sprint2</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -24,31 +24,6 @@
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
       <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.29</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.36</version>
     </dependency>
   </dependencies>
 
@@ -96,15 +71,5 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 </project>
