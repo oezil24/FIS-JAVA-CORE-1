@@ -12,4 +12,11 @@ public abstract class AbstractEntity {
     protected LocalDateTime createdAt;
 
     protected LocalDateTime modifiedAt;
+
+    public void replaceWith(AbstractEntity abstractEntity) {
+        id = abstractEntity.getId();
+        version = abstractEntity.getVersion();
+        createdAt = abstractEntity.getCreatedAt();
+        modifiedAt =abstractEntity.getModifiedAt();
+    }
 }

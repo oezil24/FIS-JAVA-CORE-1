@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.Evidence;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inMemoryEvidenceDao implements inMemoryDAO<Evidence>{
+public class inMemoryEvidenceDao implements inMemoryDAO<Evidence> {
 
     private Map<Long, Evidence> evidenceMap = new HashMap<>();
     @Override

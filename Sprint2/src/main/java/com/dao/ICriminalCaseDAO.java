@@ -1,5 +1,7 @@
 package com.dao;
 
-public interface ICriminalCaseDAO {
+import com.dao.impl.CriminalCaseDAO;
+import com.model.CriminalCase;
 
+public interface ICriminalCaseDAO extends IDAO<CriminalCase>{
 }

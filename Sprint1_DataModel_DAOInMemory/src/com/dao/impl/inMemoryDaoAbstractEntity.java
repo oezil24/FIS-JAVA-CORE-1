@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.AbstractEntity;
 
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.TrackEntry;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inTrackEntryDao implements inMemoryDAO<TrackEntry>{
+public class inTrackEntryDao implements inMemoryDAO<TrackEntry> {
     private Map<Long, TrackEntry> trackEntryMap = new HashMap<>();
 
     public Map<Long, TrackEntry> getTrackEntryMap() {

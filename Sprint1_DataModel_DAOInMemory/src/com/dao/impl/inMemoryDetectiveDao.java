@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.Detective;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inMemoryDetectiveDao implements inMemoryDAO<Detective>{
+public class inMemoryDetectiveDao implements inMemoryDAO<Detective> {
     private Map<Long, Detective> detectiveMap = new HashMap<>();
 
     public Map<Long, Detective> getDetectiveMap() {

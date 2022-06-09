@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.CriminalCase;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inMemoryCriminalCaseDao implements inMemoryDAO<CriminalCase>{
+public class inMemoryCriminalCaseDao implements inMemoryDAO<CriminalCase> {
     private Map<Long, CriminalCase> criminalCaseMap = new HashMap<>();
 
     public Map<Long, CriminalCase> getCriminalCaseMap() {

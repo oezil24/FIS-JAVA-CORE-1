@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.Person;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inMemoryPersonDao implements inMemoryDAO<Person>{
+public class inMemoryPersonDao implements inMemoryDAO<Person> {
     private Map<Long, Person> personMap = new HashMap<>();
 
     public Map<Long, Person> getPersonMap() {

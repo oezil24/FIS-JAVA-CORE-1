@@ -16,4 +16,15 @@ public class CriminalCase extends AbstractEntity{
     private Set<Evidence> evidenceSet;
     private Detective leadInvestigator;
     private Set<Detective> assigned;
+    public void replaceWith(CriminalCase criminalCase) {
+        this.number = criminalCase.getNumber();
+        this.type = criminalCase.getType();
+        this.shortDescription = criminalCase.getShortDescription();
+        this.detailedDescription = criminalCase.getDetailedDescription();
+        this.status = criminalCase.getStatus();
+        this.notes = criminalCase.getNotes();
+        this.evidenceSet = criminalCase.getEvidenceSet();
+        this.leadInvestigator = criminalCase.getLeadInvestigator();
+        this.assigned = criminalCase.getAssigned();
+    }
 }

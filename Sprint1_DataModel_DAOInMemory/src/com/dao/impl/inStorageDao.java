@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.inMemoryDAO;
 import com.model.Storage;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class inStorageDao implements inMemoryDAO<Storage>{
+public class inStorageDao implements inMemoryDAO<Storage> {
     private Map<Long, Storage> storageMap = new HashMap<>();
 
     public Map<Long, Storage> getStorageMap() {
