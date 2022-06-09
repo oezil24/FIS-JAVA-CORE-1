@@ -1,7 +1,9 @@
 package com.model;
 
-import java.util.Set;
+import lombok.Data;
 
+import java.util.Set;
+@Data
 public class Storage extends AbstractEntity{
     private String name;
     private String location;

@@ -2,9 +2,10 @@ package com.model;
 
 import com.model.enumerable.EmploymentStatus;
 import com.model.enumerable.Rank;
+import lombok.Data;
 
 import java.util.Set;
-
+@Data
 public class Detective extends AbstractEntity{
     private Person person;
     private String badgeNumber;

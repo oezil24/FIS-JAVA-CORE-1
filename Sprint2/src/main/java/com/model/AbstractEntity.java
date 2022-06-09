@@ -1,7 +1,9 @@
 package com.model;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public abstract class AbstractEntity {
     protected long id;
 
