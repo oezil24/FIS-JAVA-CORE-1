@@ -1,7 +1,6 @@
 package com.dao.impl;
 
 import com.dao.IDAO;
-import com.model.Person;
 import com.model.TrackEntry;
 
 import java.util.*;
@@ -15,6 +14,9 @@ public class TrackEntryDAO implements IDAO<TrackEntry> {
 
     @Override
     public void insert(TrackEntry trackEntry) {
+        if(!MemoryDataSource.TRACK_ENTRIES.stream().filter(
+                item -> item.getId()==trackEntry.getId()).findFirst().isPresent()
+        )
         MemoryDataSource.TRACK_ENTRIES.add(trackEntry);
     }
 
@@ -30,17 +32,18 @@ public class TrackEntryDAO implements IDAO<TrackEntry> {
 
     @Override
     public List<TrackEntry> findAll() {
+
         return MemoryDataSource.TRACK_ENTRIES;
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         for(TrackEntry trackEntry : MemoryDataSource.TRACK_ENTRIES) {
             if (trackEntry.getId() == id){
                 MemoryDataSource.TRACK_ENTRIES.remove(trackEntry);
-                return;
+                return true;
             }
         }
-
+        return false;
     }
 }

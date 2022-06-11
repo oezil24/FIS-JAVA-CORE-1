@@ -8,5 +8,5 @@ public interface IDAO<T> {
     void insert(T t);
     void update(T t);
     List<T>findAll();
-    void deleteById(Long id);
+    boolean deleteById(Long id);
 }

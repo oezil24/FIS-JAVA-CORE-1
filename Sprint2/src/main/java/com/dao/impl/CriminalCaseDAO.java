@@ -19,7 +19,10 @@ public class CriminalCaseDAO implements ICriminalCaseDAO {
 
     @Override
     public void insert(CriminalCase criminalCase) {
-        MemoryDataSource.CRIMINAL_CASES.add(criminalCase);
+        if(!MemoryDataSource.CRIMINAL_CASES.stream().filter(
+                item -> item.getId()==criminalCase.getId()).findFirst().isPresent()
+        )
+            MemoryDataSource.CRIMINAL_CASES.add(criminalCase);
     }
 
     @Override
@@ -37,13 +40,13 @@ public class CriminalCaseDAO implements ICriminalCaseDAO {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         for(CriminalCase criminalCase : MemoryDataSource.CRIMINAL_CASES) {
             if (criminalCase.getId() == id){
                 MemoryDataSource.CRIMINAL_CASES.remove(criminalCase);
-                return;
+                return true;
             }
         }
-
+        return false;
     }
 }

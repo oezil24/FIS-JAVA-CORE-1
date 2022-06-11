@@ -15,7 +15,10 @@ public class AbstractEntityDAO implements IDAO<AbstractEntity> {
 
     @Override
     public void insert(AbstractEntity abstractEntity) {
-        MemoryDataSource.ABSTRACT_ENTITIES.add(abstractEntity);
+        if(!MemoryDataSource.ABSTRACT_ENTITIES.stream().filter(
+                item -> item.getId()==abstractEntity.getId()).findFirst().isPresent()
+        )
+            MemoryDataSource.ABSTRACT_ENTITIES.add(abstractEntity);
 
     }
 
@@ -34,13 +37,13 @@ public class AbstractEntityDAO implements IDAO<AbstractEntity> {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         for(AbstractEntity abstractEntity : MemoryDataSource.ABSTRACT_ENTITIES) {
             if (abstractEntity.getId() == id){
                 MemoryDataSource.ABSTRACT_ENTITIES.remove(abstractEntity);
-                return;
+                return true;
             }
         }
-
+    return false;
     }
 }

@@ -36,6 +36,18 @@ public class SPConnection {
         return cpds;
 
     }
+    public static Connection getConnection() throws Exception {
+        // No connection pool
+        // Connection con = DriverManager.getConnection (URL, USER_NAME, PASSWORD);
+
+        // Has connection pool
+        // C3P0
+        //Connection con = getDataSource().getConnection();
+
+        // HikariCP
+        Connection con = ds.getConnection();
+        return con;
+    }
 static{
         ds = new HikariDataSource(config);
 }

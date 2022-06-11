@@ -19,4 +19,5 @@ public abstract class AbstractEntity {
         createdAt = abstractEntity.getCreatedAt();
         modifiedAt =abstractEntity.getModifiedAt();
     }
+
 }

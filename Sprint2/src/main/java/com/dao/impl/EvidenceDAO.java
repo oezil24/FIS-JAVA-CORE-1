@@ -17,6 +17,9 @@ public class EvidenceDAO implements IDAO<Evidence> {
 
     @Override
     public void insert(Evidence evidence) {
+        if(!MemoryDataSource.EVIDENCES.stream().filter(
+                item -> item.getId()==evidence.getId()).findFirst().isPresent()
+        )
         MemoryDataSource.EVIDENCES.add(evidence);
     }
 
@@ -36,13 +39,13 @@ public class EvidenceDAO implements IDAO<Evidence> {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         for(Detective detective : MemoryDataSource.DETECTIVES) {
             if (detective.getId() == id){
                 MemoryDataSource.CRIMINAL_CASES.remove(detective);
-                return;
+                return true;
             }
         }
-
+return false;
     }
 }

@@ -15,7 +15,10 @@ public class DetectiveDAO implements IDAO<Detective> {
 
     @Override
     public void insert(Detective detective) {
-        MemoryDataSource.DETECTIVES.add(detective);
+        if(!MemoryDataSource.DETECTIVES.stream().filter(
+                item -> item.getId()==detective.getId()).findFirst().isPresent()
+        )
+                    MemoryDataSource.DETECTIVES.add(detective);
     }
 
     @Override
@@ -33,13 +36,14 @@ public class DetectiveDAO implements IDAO<Detective> {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         for(Detective detective : MemoryDataSource.DETECTIVES) {
             if (detective.getId() == id){
                 MemoryDataSource.CRIMINAL_CASES.remove(detective);
-                return;
+                return true;
             }
         }
+        return false;
     }
 }
 
