@@ -2,7 +2,7 @@ package com.dao.impl;
 
 import com.dao.IDAO;
 import com.model.AbstractEntity;
-import com.model.Detective;
+import com.model.Evidence;
 
 import java.util.*;
 
@@ -23,17 +23,24 @@ public class AbstractEntityDAO implements IDAO<AbstractEntity> {
     }
 
     @Override
-    public void update(AbstractEntity abstractEntity) {
+    public boolean update(AbstractEntity abstractEntity) {
+        boolean isUpdated = false;
         Optional<AbstractEntity> abstractEntityOptional = get(abstractEntity.getId());
         if(abstractEntityOptional.isPresent()){
             AbstractEntity updatedAbstractEntity = abstractEntityOptional.get();
             updatedAbstractEntity.replaceWith(abstractEntity);
         }
+        return isUpdated;
     }
 
     @Override
     public List<AbstractEntity> findAll() {
         return MemoryDataSource.ABSTRACT_ENTITIES;
+    }
+
+    @Override
+    public boolean delete(AbstractEntity abstractEntity) {
+        return false;
     }
 
     @Override

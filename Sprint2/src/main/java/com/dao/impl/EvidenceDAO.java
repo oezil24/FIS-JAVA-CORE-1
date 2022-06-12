@@ -24,18 +24,24 @@ public class EvidenceDAO implements IDAO<Evidence> {
     }
 
     @Override
-    public void update(Evidence evidence) {
+    public boolean update(Evidence evidence) {
+        boolean isUpdated = false;
         Optional<Evidence> evidenceOptional = get(evidence.getId());
         if(evidenceOptional.isPresent()){
             Evidence updatedEvidence = evidenceOptional.get();
             updatedEvidence.replaceWith(evidence);
         }
-
+        return isUpdated;
     }
 
     @Override
     public List<Evidence> findAll() {
         return MemoryDataSource.EVIDENCES;
+    }
+
+    @Override
+    public boolean delete(Evidence evidence) {
+        return false;
     }
 
     @Override

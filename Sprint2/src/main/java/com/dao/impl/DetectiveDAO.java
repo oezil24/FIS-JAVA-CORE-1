@@ -1,6 +1,7 @@
 package com.dao.impl;
 
 import com.dao.IDAO;
+import com.model.CriminalCase;
 import com.model.Detective;
 
 import java.util.*;
@@ -22,17 +23,24 @@ public class DetectiveDAO implements IDAO<Detective> {
     }
 
     @Override
-    public void update(Detective detective) {
-        Optional<Detective> detectiveOptional = get(detective.getId());
-        if(detectiveOptional.isPresent()){
-            Detective updatedCriminalCase = detectiveOptional.get();
-            updatedCriminalCase.replaceWith(detective);
+    public boolean update(Detective detective) {
+        boolean isUpdated = false;
+        Optional<Detective> detectiveCaseOptional = get(detective.getId());
+        if(detectiveCaseOptional.isPresent()){
+            Detective updatedDetective = detectiveCaseOptional.get();
+            updatedDetective.replaceWith(detective);
         }
+        return isUpdated;
     }
 
     @Override
     public List<Detective> findAll() {
         return MemoryDataSource.DETECTIVES;
+    }
+
+    @Override
+    public boolean delete(Detective detective) {
+        return false;
     }
 
     @Override

@@ -1,15 +1,76 @@
+
+CREATE TABLE Detective (
+
+id INT,
+version INT NOT NULL,
+createdAt DATETIME NOT NULL,
+modifiedAt DATETIME NOT NULL,
+
+username VARCHAR(100) UNIQUE NOT NULL,
+firstName VARCHAR(100) NOT NULL,
+lastName VARCHAR (100) NOT NULL,
+pw VARCHAR(100) NOT NULL,
+hiringDate DATETIME NOT NULL,
+badgeNumber VARCHAR(50) UNIQUE NOT NULL,
+rankOfDetective ENUM('TRAINEE', 'JUNIOR', 'SENIOR', 'INSPECTOR', 'CHIEF_INSPECTOR') NOT NULL,
+armed TINYINT(1) NOT NULL,
+stt ENUM ('ACTIVE', 'SUSPENDED', 'VACATION', 'UNDER_INVESTIGATION', 'RETIRED') NOT NULL,
+
+CONSTRAINT pk_d PRIMARY KEY (id)
+);
 CREATE TABLE CriminalCase(
-id INT UNIQUE NOT NULL,
-number VARCHAR(30) UNIQUE NOT NULL,
-type ENUM('uncategorized', 'infraction', 'misdemeanor', 'felony'),
+
+id INT,
+version INT NOT NULL,
+createdAt DATETIME NOT NULL,
+modifiedAt DATETIME NOT NULL,
+
+number VARCHAR(100) UNIQUE NOT NULL,
+type ENUM('UNCATEGORIZED', 'INFRACTION', 'MISDEMEANOR', 'FELONY'),
 shortDescription VARCHAR(500) NOT NULL,
 detailedDescription TEXT NOT NULL,
-status ENUM('submitted', 'under_investigation', 'in_court', 'closed', 'dismissed', 'cold'),
+status ENUM('SUBMITTED', 'UNDER_INVESTIGATION', 'IN_COURT', 'CLOSED', 'DISMISSED', 'COLD'),
 note VARCHAR(500) NOT NULL,
 
-evidenceId INT UNIQUE NOT NULL,
-leadInvestigatorId INT UNIQUE NOT NULL,
-assignedId INT UNIQUE NOT NULL,
+CONSTRAINT pk_cc PRIMARY KEY (id)
+);
 
+CREATE TABLE Storage(
 
-CONSTRAINT pk_cc PRIMARY KEY (id))
+id INT,
+version INT NOT NULL,
+createdAt DATETIME NOT NULL,
+modifiedAt DATETIME NOT NULL,
+
+name VARCHAR(100) NOT NULL,
+location VARCHAR (500) NOT NULL,
+
+CONSTRAINT pk_s PRIMARY KEY (id)
+);
+CREATE TABLE Evidence (
+
+id INT,
+version INT NOT NULL,
+createdAt DATETIME NOT NULL,
+modifiedAt DATETIME NOT NULL,
+
+number VARCHAR(100) UNIQUE NOT NULL,
+itemName VARCHAR(100) NOT NULL,
+note VARCHAR(500) NOT NULL,
+archived SMAlLINT(1) NOT NULL,
+
+CONSTRAINT pk_e PRIMARY KEY (id)
+);
+CREATE TABLE TrackEntry(
+
+id INT,
+version INT NOT NULL,
+createdAt DATETIME NOT NULL,
+modifiedAt DATETIME NOT NULL,
+
+trackDate DATETIME NOT NULL,
+action ENUM('SUBMITTED','RETRIEVED','RETURNED'),
+reason VARCHAR(100) NOT NULL,
+
+CONSTRAINT pk_te PRIMARY KEY (id)
+)

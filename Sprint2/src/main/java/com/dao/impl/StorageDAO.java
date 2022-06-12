@@ -1,9 +1,7 @@
 package com.dao.impl;
 
-import com.dao.IDAO;
 import com.dao.IStorageDAO;
 import com.model.Storage;
-import com.model.TrackEntry;
 
 import java.util.*;
 
@@ -23,18 +21,25 @@ public class StorageDAO implements IStorageDAO {
     }
 
     @Override
-    public void update(Storage storage) {
+    public boolean update(Storage storage) {
+        boolean isUpdated = false;
         Optional<Storage> storageOptional = get(storage.getId());
         if(storageOptional.isPresent()){
             Storage updatedStorage = storageOptional.get();
             updatedStorage.replaceWith(storage);
         }
+        return isUpdated;
 
     }
 
     @Override
     public List<Storage> findAll() {
         return MemoryDataSource.STORAGES;
+    }
+
+    @Override
+    public boolean delete(Storage storage) {
+        return false;
     }
 
     @Override

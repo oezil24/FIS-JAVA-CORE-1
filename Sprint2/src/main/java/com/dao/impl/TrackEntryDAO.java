@@ -21,19 +21,25 @@ public class TrackEntryDAO implements IDAO<TrackEntry> {
     }
 
     @Override
-    public void update(TrackEntry trackEntry) {
+    public boolean update(TrackEntry trackEntry) {
+        boolean isUpdated = false;
         Optional<TrackEntry> trackEntryOptional = get(trackEntry.getId());
         if(trackEntryOptional.isPresent()){
             TrackEntry updatedTrackEntry = trackEntryOptional.get();
             updatedTrackEntry.replaceWith(trackEntry);
         }
-
+        return isUpdated;
     }
 
     @Override
     public List<TrackEntry> findAll() {
 
         return MemoryDataSource.TRACK_ENTRIES;
+    }
+
+    @Override
+    public boolean delete(TrackEntry trackEntry) {
+        return false;
     }
 
     @Override

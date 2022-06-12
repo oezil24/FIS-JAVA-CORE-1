@@ -1,9 +1,8 @@
 package com.dao.impl;
 
 import com.dao.ICriminalCaseDAO;
-import com.dao.IDAO;
 import com.model.CriminalCase;
-import com.model.Detective;
+import com.model.Evidence;
 
 import java.util.*;
 
@@ -26,17 +25,24 @@ public class CriminalCaseDAO implements ICriminalCaseDAO {
     }
 
     @Override
-    public void update(CriminalCase criminalCase) {
+    public boolean update(CriminalCase criminalCase) {
+        boolean isUpdated = false;
         Optional<CriminalCase> criminalCaseOptional = get(criminalCase.getId());
         if(criminalCaseOptional.isPresent()){
             CriminalCase updatedCriminalCase = criminalCaseOptional.get();
             updatedCriminalCase.replaceWith(criminalCase);
         }
+        return isUpdated;
     }
 
     @Override
     public List<CriminalCase> findAll() {
         return MemoryDataSource.CRIMINAL_CASES;
+    }
+
+    @Override
+    public boolean delete(CriminalCase criminalCase) {
+        return false;
     }
 
     @Override
@@ -47,6 +53,16 @@ public class CriminalCaseDAO implements ICriminalCaseDAO {
                 return true;
             }
         }
+        return false;
+    }
+
+    @Override
+    public boolean findById(long id) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAll() {
         return false;
     }
 }

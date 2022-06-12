@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -100,6 +101,7 @@ class CriminalCaseDAOTest {
 
     @Test
     void delete() {
+
         LOG.info("test delete");
     }
 
