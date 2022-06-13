@@ -27,4 +27,23 @@ public class CriminalCase extends AbstractEntity{
         this.leadInvestigator = criminalCase.getLeadInvestigator();
         this.assigned = criminalCase.getAssigned();
     }
+
+    @Override
+    public String toString() {
+        return "CriminalCase{" +
+                "number='" + number + '\'' +
+                ", type=" + type +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", detailedDescription='" + detailedDescription + '\'' +
+                ", status=" + status +
+                ", notes='" + notes + '\'' +
+                ", evidenceSet=" + evidenceSet +
+                ", leadInvestigator=" + leadInvestigator +
+                ", assigned=" + assigned +
+                ", id=" + id +
+                ", version=" + version +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                '}';
+    }
 }

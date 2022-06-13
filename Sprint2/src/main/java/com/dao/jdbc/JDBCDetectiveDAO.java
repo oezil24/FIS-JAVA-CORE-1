@@ -50,7 +50,7 @@ public class JDBCDetectiveDAO implements IDetectiveDAO {
         else {
             try {
                 Connection con = SPConnection.getConnection();
-                PreparedStatement stmt = con.prepareStatement("UPDATE Detective SET version = ?, createdAt = ? ,modifiedAt = ?, username = ?, firstName = ?, lastName = ?, pw = ? , hiringDate = ?, badgeNumber = ?, rankOfDetective = ?, armed = ?, stt = ? WHERE id = ?" );
+                PreparedStatement stmt = con.prepareStatement("UPDATE Detective SET version = ?, createdAt = ? ,modifiedAt = ?, username = ?, firstName = ?, lastName = ?, pw = ? , hiringDate = ?, badgeNumber = ?, rankOfDetective = ?, armed = ?, stt = ? WHERE detectiveId = ?" );
                 DatabaseUpdate.updateDetective(detective, stmt);
                 stmt.setLong(13, detective.getId());
                 if (stmt.executeUpdate() > 0) {
@@ -94,7 +94,7 @@ public class JDBCDetectiveDAO implements IDetectiveDAO {
         }
         try {
             Connection con = SPConnection.getConnection();
-            PreparedStatement stmt = con.prepareStatement("DELETE FROM Detective WHERE id = ?");
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM Detective WHERE detectiveId = ?");
             stmt.setLong(1, detective.getId());
             if (stmt.executeUpdate() > 0) {
                 logger.info("Successfully deleted detective with id = "+ detective.getId());
@@ -118,7 +118,7 @@ public class JDBCDetectiveDAO implements IDetectiveDAO {
         else {
             try {
                 Connection con = SPConnection.getConnection();
-                PreparedStatement stmt = con.prepareStatement("DELETE FROM Detective WHERE id = ?");
+                PreparedStatement stmt = con.prepareStatement("DELETE FROM Detective WHERE detectiveId = ?");
                 stmt.setLong(1,id);
                 if (stmt.executeUpdate() > 0) {
                     logger.info("Successfully deleted ");
@@ -139,7 +139,7 @@ public class JDBCDetectiveDAO implements IDetectiveDAO {
         Detective detective;
         boolean canFind = false;
         try (Connection con = SPConnection.getConnection()){
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Detective WHERE id = ?");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Detective WHERE detectiveId = ?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 

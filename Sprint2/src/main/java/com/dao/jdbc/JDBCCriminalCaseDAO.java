@@ -48,7 +48,7 @@ public class JDBCCriminalCaseDAO implements ICriminalCaseDAO {
         } else {
             try {
                 Connection con = SPConnection.getConnection();
-                PreparedStatement stmt = con.prepareStatement("UPDATE CriminalCase SET version = ?, createdAt = ? ,modifiedAt = ?, number = ?,type = ?, shortDescription = ?, detailedDescription = ?,status = ?,note =? WHERE id = ?");
+                PreparedStatement stmt = con.prepareStatement("UPDATE CriminalCase SET version = ?, createdAt = ? ,modifiedAt = ?, number = ?,type = ?, shortDescription = ?, detailedDescription = ?,status = ?,note =? WHERE criminalCaseId = ?");
                 DatabaseUpdate.updateCriminalCase(criminalCase, stmt);
                 stmt.setLong(10, criminalCase.getId());
                 if (stmt.executeUpdate() > 0) {
@@ -94,7 +94,7 @@ public class JDBCCriminalCaseDAO implements ICriminalCaseDAO {
         }
         try {
             Connection con = SPConnection.getConnection();
-            PreparedStatement stmt = con.prepareStatement("DELETE FROM CriminalCase WHERE id = ?");
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM CriminalCase WHERE criminalCaseId = ?");
             stmt.setLong(1, criminalCase.getId());
             if (stmt.executeUpdate() > 0) {
                 logger.info("Successfully deleted criminalCase with id = " + criminalCase.getId());
@@ -116,7 +116,7 @@ public class JDBCCriminalCaseDAO implements ICriminalCaseDAO {
         } else {
             try {
                 Connection con = SPConnection.getConnection();
-                PreparedStatement stmt = con.prepareStatement("DELETE FROM CriminalCase WHERE id = ?");
+                PreparedStatement stmt = con.prepareStatement("DELETE FROM CriminalCase WHERE criminalCaseId = ?");
                 stmt.setLong(1, id);
                 if (stmt.executeUpdate() > 0) {
                     logger.info("Successfully deleted ");
@@ -137,7 +137,7 @@ public class JDBCCriminalCaseDAO implements ICriminalCaseDAO {
         CriminalCase criminalCase;
         boolean canFind = false;
         try (Connection con = SPConnection.getConnection()) {
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM CriminalCase WHERE id = ?");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM CriminalCase WHERE criminalCaseId = ?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
