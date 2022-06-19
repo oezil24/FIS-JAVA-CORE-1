@@ -24,19 +24,6 @@ public class OrderManagementApplication {
 		SpringApplication.run(OrderManagementApplication.class, args);
 	}
 
-
-	@Autowired
-	private OrderService orderService;
-
-	@Autowired
-	private CustomerService customerService;
-	private ProductRepository productRepository;
-	CustomerRepository customerRepository;
-
-	@Bean
-	CommandLineRunner commandLineRunner() {
-		return null;
-	};
 	}
 
 

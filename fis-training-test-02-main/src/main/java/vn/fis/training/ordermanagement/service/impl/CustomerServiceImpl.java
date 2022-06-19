@@ -44,4 +44,14 @@ public class CustomerServiceImpl implements CustomerService {
         if(customer.isPresent()) return customer.get();
         return null;
     }
+
+    @Override
+    public Optional<Customer> findById(Long id) {
+        return customerRepository.findById(id);
+    }
+
+    @Override
+    public void deleteAll() {
+        customerRepository.deleteAll();
+    }
 }

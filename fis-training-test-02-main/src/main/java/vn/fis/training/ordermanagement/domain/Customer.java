@@ -21,6 +21,16 @@ public class Customer {
     @Column(name="address")
     private String address;
 
+    public Customer() {
+    }
+
+    public Customer(Long id, String name, String mobile, String address) {
+        this.id = id;
+        this.name = name;
+        this.mobile = mobile;
+        this.address = address;
+    }
+
     public Long getId() {
         return id;
     }
