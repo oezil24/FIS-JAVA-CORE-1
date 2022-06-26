@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-@Table(name = "evidences")
+@Table(name = "evidence")
 public class Evidence extends AbstracEntity {
     @ManyToOne
     @JoinColumn(name="case_id", nullable = false)

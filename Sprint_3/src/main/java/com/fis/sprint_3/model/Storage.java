@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-@Table(name = "storages")
+@Table(name = "storage")
 public class Storage extends AbstracEntity {
     @Column(name = "name")
     private String name;

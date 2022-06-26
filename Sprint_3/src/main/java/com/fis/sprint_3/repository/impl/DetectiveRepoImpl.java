@@ -20,7 +20,7 @@ public class DetectiveRepoImpl extends AbstractRepoimpl<Detective> implements De
     @Override
     public void create(Detective detective) {
         jdbcTemplate.update(
-                "insert into detectives(id, create_time, modify_time, armed, badge_number, employmentStatus, `rank`,person_id) " +
+                "insert into detective(id, create_time, modify_time, armed, badge_number, employmentStatus, `rank`,person_id) " +
                         "values(?,?,?,?,?,?,?,?)",
                 detective.getId(), LocalDateTime.now(), LocalDateTime.now(), detective.getArmed(), detective.getBadgeNumber(),
                 String.valueOf(detective.getEmploymentStatus()),
@@ -31,7 +31,7 @@ public class DetectiveRepoImpl extends AbstractRepoimpl<Detective> implements De
     @Override
     public Set<Detective> getALl() {
         String sql = "select d.id, d.badge_number, d.rank, d.ARMED, d.employmentStatus, d.person_id, p.user_name, " +
-                "p.first_name, p.last_name, p.hiring_date FROM detectives d, persons p WHERE d.person_id = p.id;";
+                "p.first_name, p.last_name, p.hiring_date FROM detective d, person p WHERE d.person_id = p.id;";
         return new HashSet<>(jdbcTemplate.query(sql, rowMapper));
     }
 
@@ -39,14 +39,14 @@ public class DetectiveRepoImpl extends AbstractRepoimpl<Detective> implements De
     public Detective findById(Long id) {
         String sql = "select d.id, d.create_time, d.modify_time, d.version, d.armed, d.badge_number," +
                 "d.employmentStatus, d.`rank`, d.person_id, p.user_name, p.first_name, p.last_name, p.hiring_date " +
-                "from detectives d, persons p where d.id = ? " +
+                "from detective d, person p where d.id = ? " +
                 "and d.person_id = p.id";
         return jdbcTemplate.queryForObject(sql, rowMapper, id);
     }
 
     @Override
     public Detective update(Detective detective) {
-        jdbcTemplate.update("UPDATE detectives d SET d.modify_time = now(), d.version = ?, d.armed = ?, " +
+        jdbcTemplate.update("UPDATE detective d SET d.modify_time = now(), d.version = ?, d.armed = ?, " +
                         "d.employmentStatus = ?, d.`rank` = ?  WHERE d.id = ?",
                 detective.getVersion(), detective.getArmed(),String.valueOf(detective.getEmploymentStatus()),
                 String.valueOf(detective.getRank()), detective.getId());

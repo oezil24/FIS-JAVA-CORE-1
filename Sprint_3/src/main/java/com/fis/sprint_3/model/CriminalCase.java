@@ -7,21 +7,21 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-@Table(name = "criminal_case")
+@Table(name = "criminalcase")
 public class CriminalCase extends AbstracEntity {
     @Column(name = "number", unique = true)
     private String number;
-    @Column(name = "case_type")
+    @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private CaseType caseType;
-    @Column(name = "short_description")
+    @Column(name = "shortDescription")
     private String shortDescription;
-    @Column(name = "detail_description")
+    @Column(name = "detailedDescription")
     private String detailedDescription;
-    @Column(name = "case_status")
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private CaseStatus caseStatus;
-    @Column(name = "notes")
+    @Column(name = "note")
     private String notes;
     @OneToMany(mappedBy = "criminalCase")
     @Transient

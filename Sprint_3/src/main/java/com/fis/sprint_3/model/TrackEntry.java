@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 @Entity
-@Table(name = "track_entries")
+@Table(name = "trackentry")
 public class TrackEntry extends AbstracEntity {
     @Column
     private LocalDateTime date;

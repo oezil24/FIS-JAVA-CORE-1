@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-@Table(name = "detectives")
+@Table(name = "detective")
 public class Detective extends AbstracEntity {
     @OneToOne
     @JoinColumn(name = "person_id")

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "persons")
+@Table(name = "person")
 public class Person extends AbstracEntity {
     @Column(name = "user_name", unique = true)
     private String userName;
