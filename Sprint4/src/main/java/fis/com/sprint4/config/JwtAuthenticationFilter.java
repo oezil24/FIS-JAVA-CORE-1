@@ -1,6 +1,6 @@
 package fis.com.sprint4.config;
 
-import com.fis.ducnv.service.impl.AccountDetailServiceImpl;
+import fis.com.sprint4.service.impl.AccountDetailServiceImpl;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain filterChain) throws ServletException, IOException {
         final String requestTokenHeader = request.getHeader("Authorization");
-        System.out.println("okokokko: " + requestTokenHeader);
+        System.out.println("OK: " + requestTokenHeader);
         String username = null;
         String jwtToken = null;
         if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {

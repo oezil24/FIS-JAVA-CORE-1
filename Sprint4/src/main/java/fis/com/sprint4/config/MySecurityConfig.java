@@ -1,6 +1,6 @@
 package fis.com.sprint4.config;
 
-import com.fis.ducnv.service.impl.AccountDetailServiceImpl;
+import fis.com.sprint4.service.impl.AccountDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
